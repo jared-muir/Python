@@ -1,0 +1,29 @@
+import numpy as np
+
+#probility that heads or tails will land.
+probability = .5
+#number of flips that will occur.
+n = 100
+
+#array to store flips
+ResultArray = np.arange(n)
+
+def coinFlip(p):
+    #binomila distribution (0 or 1)
+    result = np.random.binomial(1,p)
+
+    #return result to the ResultArray
+    return result
+
+#performs flips using for loop and n variable
+for i in range(0, n):
+    ResultArray[i] = coinFlip(probability)
+    i+=1
+
+#print results 
+
+print("Probability is set to: ", probability)
+print("Tails = 0, Heads = 1: ", ResultArray)
+
+print("Head Count: ", np.count_nonzero(ResultArray == 1))
+print("Tail Count: ", np.count_nonzero(ResultArray == 0))
